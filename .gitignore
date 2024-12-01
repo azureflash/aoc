@@ -1,0 +1,6 @@
+*.txt
+*/*.txt
+*.env
+*/*.env
+uiua-modules/*
+*/uiua-modules/*
