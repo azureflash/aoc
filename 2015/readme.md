@@ -1,0 +1,3 @@
+- Solving Journal (stream of thought during problem solving)
+- Solution Review (find alternates and compare)
+- Generalizations (imagine extensions to the problem and try to solve those)
