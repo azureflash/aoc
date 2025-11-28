@@ -32,6 +32,16 @@ Parse ← ⨬(get|⋕)<₁₀/↥⊸-@0
 
 Now I can attack the thing that "pattern matches" on the left side and runs the appropriate calculation (with Parse somewhere along the line). The plan is to have an array with the function names, and use a switch to run code based on which index is found, the last one being the case where we just send a value into a wire. Sure hope there's not a wire named "or"...
 
+It took a while of trying various combinations of find, memberof, backwards, row, etc. before I put together the way to find what boxed substrings are inside another string. Then with where we can feed into a switch.
+
+```uiua
+⊚≡(/↥◇⌕) {"NOT" "AND" "OR" "LSHIFT" "RSHIFT"} ¤
+```
+
+Next step is to implement all of the functions. Should be easy enough with Uiua's bits function and some under magic!
+- NOT: under bits not
+- AND: more complicated than it looked, I can't under both bits because there aren't two binary arrays at the end. Also need to adjust both arrays to the same size, although knowing the numbers are 16 bit, we could just use bits,16. That saves a lot of effort.
+- OR: same story as with AND but instead of multiplying the bits together we use the or function or, to avoid using the experimental flag, we can do sum and sign?
 # Solution Review
 
 # Expansion
