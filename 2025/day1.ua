@@ -1,5 +1,5 @@
 &fras $"/home/azure/Dev/Uiua/aoc/2025/_.txt" °$"_.ua"⊢&args
-CodeToRot ← ×⊃(⊢-1⊚="L_R"|⋅⋕)°⊂
-/+=0◿₁₀₀\+⊂ 50⊜(CodeToRot)⊸≠@\n
-
-# ⊃($PartA|$PartB)
+⊜(×⊃(⊢-1⊚="L_R"|⋅⋕)°⊂)⊸≠@\n # Parse into the list of instructions
+⊃($PartA /+=0◿₁₀₀\+⊂ 50
+| $PartB /+≡(/+=₀◿₁₀₀+⇡°⊟)⍉˜⊟⊙⍜⇌(⊂0)\+⊸⊂50
+)
