@@ -73,6 +73,24 @@ All put together, my first attempt for part 2 only, without the parsing, looks l
 
 And it yields an incorrect answer, too low. I'm going to have to go through some examples again with a fine comb... later.
 
+Here I am again, late evening day 2, after finishing both parts of day 2. My solution for d1p2 works for the given example, frustratingly enough... I'm going to try the approach of breaking my code with the smallest possible list of instructions.
+
+I thought to add an instruction at the end of the example to see if I can make my code fail using various ways. The first thing I tried is adding R68 at the end, making it stop on a zero. And course, it fails, the count doesn't increase. Womp womp! Time to step through with args to see what doesn't make sense.
+
+Looks like I'd added a bunch of inversions and additions that made no sense and the ranges were wrong in many instances.
+
+Now the ranges look correct, but it counts one too many. One inconsistency I noticed with the way I make ranges now, if the first number is positive, the start of the range is excluded, but if it's negative, the end of the range is excluded.
+
+Under negate range builds the range [a,b), I think I've been giving it a and n. I should compute b before using this pattern. On add does this in all cases.
+
+The solution I came up with:
+- Couple the positions and moves backwards to have the number of elements in the range first
+- Split out the sign of the move with on sign
+- Take the absolute value and create the range
+- Multiply to apply the sign of the move
+- Add the starting point
+
+This seems to generate including the starting point and excluding the ending point consistently every time, as originally desired. The answer this generates is 1 more than the first try, and is correct. Whew!
 
 # Solution Review
 
